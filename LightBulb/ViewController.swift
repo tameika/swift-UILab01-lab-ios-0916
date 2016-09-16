@@ -8,27 +8,73 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var lightBulb: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        print("viewDidLoad")
         
-        // TODO: Change background color of lightBulb view to red
-        
+        changeColor(to: "red".color)
     }
+
 
     func changeColor(to color: UIColor) {
         
-        // TODO: Change background color to "color"
+        print("changeColor function is called with this color \(color)")
+    
+        lightBulb.backgroundColor = color
         
     }
 
+
     @IBAction func colorSelected(sender: UISegmentedControl) {
+        
+        print("colorSelected was called.")
+        
+        switch sender.selectedSegmentIndex {
+        
+        case 0:
+            
+            print("Selected Segment Index is equal to 0")
+            
+            changeColor(to: "red".color)
+            
+        case 1:
+            
+            print("Selected Segment Index is equal to 1")
+            
+            changeColor(to: "yellow".color)
+            
+        case 2:
+            
+            print("Selected Segment Index is equal to 2")
+            
+            changeColor(to: "blue".color)
+            
+        case 3:
+            
+            print("Selected Segment Index is equal to 3")
+            
+            changeColor(to: "green".color)
+            
+        default:
+            
+            print("Selected Segment Index is equal to 0")
+            
+            changeColor(to: "red".color)
+
+        }
+        
         
         print("The selected index is \(sender.selectedSegmentIndex)")
         
         // TODO: Change background color when segmented control changes
     }
 }
+
+
